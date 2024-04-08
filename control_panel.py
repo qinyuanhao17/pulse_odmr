@@ -148,7 +148,7 @@ class MyWindow(pulse_odmr_ui.Ui_Form, QWidget):
         self.pulse_streamer_singal_init()
         self.pulse_streamer_info_ui()
         self.pulse_streamer_info_msg.connect(self.pulse_streamer_slot)
-        self.pulser_daq_on_activate()
+        # self.pulser_daq_on_activate()
         
         '''
         Data processing init
@@ -327,79 +327,125 @@ class MyWindow(pulse_odmr_ui.Ui_Form, QWidget):
                 time.sleep(0.5)
                 self.pulser.reset()
                 break
+    @property
     def configure_pulse(self):
-        mw_start = int(self.mw_start_spbx.value()) # in ns
-        mw_gate = int(self.mw_gate_spbx.value()) # in ns
-        mw_step = int(self.mw_step_spbx.value()) # in ns
-        laser_start = int(self.laser_start_spbx.value()) # in ns
-        laser_gate = int(self.laser_gate_spbx.value())*1000 # in ns
+        '''
+        Global parameters
+        '''
         daq_high = 100 # in ns
-        daq_gate = int(self.daq_gate_spbx.value())
-        daq_start = int(self.daq_start_spbx.value())
-        inner_repeat = int(self.inner_repeat_spbx.value())
-        n_sample = np.arange(0, mw_gate+mw_step, mw_step)
-        return {
-            'mw_start':mw_start,
-            'mw_gate':mw_gate,
-            'mw_step':mw_step,
-            'laser_start':laser_start,
-            'laser_gate':laser_gate,
-            'daq_high':daq_high,
-            'daq_gate':daq_gate,
-            'daq_start':daq_start,
-            'inner_repeat':inner_repeat,
-            'n_sample': n_sample
-        }
+        '''
+        T1 parameters
+        '''
+        t1_laser_start = int(self.t1_laser_start_spbx.value()) # in ns
+        t1_laser_gate = int(self.t1_laser_gate_spbx.value())*1000 # in ns
+        t1_daq_gate = int(self.t1_daq_gate_spbx.value())
+        t1_daq_start = int(self.t1_daq_start_spbx.value())
+        t1_span = int(self.t1_span_spbx.value())
+        t1_step = int(self.t1_step_spbx.value())
+        t1_inner_repeat = int(self.t1_inner_repeat_spbx.value())
+        t1_n_sample = np.arange(0, t1_span+t1_step, t1_step)
+        '''
+        Rabi parameters
+        '''
+        rabi_mw_start = int(self.rabi_mw_start_spbx.value()) # in ns
+        rabi_mw_gate = int(self.rabi_mw_gate_spbx.value()) # in ns
+        rabi_mw_step = int(self.rabi_mw_step_spbx.value()) # in ns
+        rabi_laser_start = int(self.rabi_laser_start_spbx.value()) # in ns
+        rabi_laser_gate = int(self.rabi_laser_gate_spbx.value())*1000 # in ns
+        
+        rabi_daq_gate = int(self.rabi_daq_gate_spbx.value())
+        rabi_daq_start = int(self.rabi_daq_start_spbx.value())
+        rabi_inner_repeat = int(self.rabi_inner_repeat_spbx.value())
+        rabi_n_sample = np.arange(0, rabi_mw_gate+rabi_mw_step, rabi_mw_step)
+        return{
+            'T1': {
+                't1_laser_start':t1_laser_start,
+                't1_laser_gate':t1_laser_gate,
+                't1_daq_gate':t1_daq_gate,
+                't1_daq_start':t1_daq_start,
+                't1_inner_repeat':t1_inner_repeat,
+                't1_n_sample':t1_n_sample,
+                't1_laser_part': int(t1_laser_gate/2),
+                'daq_high':daq_high,
+            },
+            'Rabi': {
+                'rabi_mw_start':rabi_mw_start,
+                'rabi_mw_gate':rabi_mw_gate,
+                'rabi_mw_step':rabi_mw_step,
+                'rabi_laser_start':rabi_laser_start,
+                'rabi_laser_gate':rabi_laser_gate,
+                'daq_high':daq_high,
+                'rabi_daq_gate':rabi_daq_gate,
+                'rabi_daq_start':rabi_daq_start,
+                'rabi_inner_repeat':rabi_inner_repeat,
+                'rabi_n_sample': rabi_n_sample,
+                'rabi_laser_part': int(rabi_laser_gate/2)
+            },
+            'Ramsey':{
+                
+            },
+            'Hahn Echo':{
+                
+            }
+        } 
+    @property
+    def configure_sequence(self):
+        pass
     def set_pulse_and_count(self, ch_aom, ch_switch, ch_daq, **kwargs):
         # print(ch_aom, ch_switch, ch_daq, ch_mw_source)
-        self._pulse_configuration = self.configure_pulse()
-
-        mw_start = self._pulse_configuration['mw_start']
-        mw_gate = self._pulse_configuration['mw_gate']
-        mw_step = self._pulse_configuration['mw_step']
-
-        laser_start = self._pulse_configuration['laser_start']
-        laser_gate = self._pulse_configuration['laser_gate']
-        laser_part = int(laser_gate/2)
-
-        daq_high = self._pulse_configuration['daq_high']
-        daq_gate = self._pulse_configuration['daq_gate']
-        daq_start = self._pulse_configuration['daq_start']
-
-        inner_repeat = self._pulse_configuration['inner_repeat']
-        n_sample = self._pulse_configuration['n_sample']
-        #define digital levels
-        HIGH=1
-        LOW=0
-
-        seq_aom=[]
-        seq_switch=[]
-        seq_daq = []
+        current_tab_index = self.pulse_tab.currentIndex()
+        current_tab_name = self.pulse_tab.tabText(current_tab_index)
+        self._pulse_configuration = self.configure_pulse[current_tab_name]
         
-        for item in n_sample:
-            seq_aom += [(laser_part,HIGH),(mw_start+item+laser_start,LOW),(laser_part,HIGH)]
-            seq_switch += [(laser_part+mw_start,LOW),(item,HIGH),(laser_start+laser_part,LOW)]
-            seq_daq += [(laser_part+mw_start+item+daq_start,LOW),(daq_high,HIGH),(daq_gate-daq_high,LOW),(daq_high,HIGH),(laser_part-daq_start+laser_start-daq_high-daq_gate,LOW)]
-        
-        #create the sequence
-        self.seq = Sequence()
-        
-        #set digital channels
-        self.seq.setDigital(ch_aom, seq_aom)
-        self.seq.setDigital(ch_switch, seq_switch)
-        self.seq.setDigital(ch_daq, seq_daq)
+        for key, value in self._pulse_configuration.items():
+            setattr(self, key, value)
+        print(self.test_1)
+        # mw_start = self._pulse_configuration['mw_start']
+        # mw_gate = self._pulse_configuration['mw_gate']
+        # mw_step = self._pulse_configuration['mw_step']
 
-        self.seq.plot()
-        self.task.timing.cfg_samp_clk_timing(
-            rate=2E6,
-            source='/Dev2/PFI1',
-            active_edge=Edge.RISING,
-            sample_mode=AcquisitionType.CONTINUOUS,
-            samps_per_chan=2*len(n_sample)
-        )
-        self.pulse_streamer_info_msg.emit('Counter input channel: '+self.odmr_ctr_channel.ci_count_edges_term)
+        # laser_start = self._pulse_configuration['laser_start']
+        # laser_gate = self._pulse_configuration['laser_gate']
+        # laser_part = int(laser_gate/2)
+
+        # daq_high = self._pulse_configuration['daq_high']
+        # daq_gate = self._pulse_configuration['daq_gate']
+        # daq_start = self._pulse_configuration['daq_start']
+
+        # inner_repeat = self._pulse_configuration['inner_repeat']
+        # n_sample = self._pulse_configuration['n_sample']
+        # #define digital levels
+        # HIGH=1
+        # LOW=0
+
+        # seq_aom=[]
+        # seq_switch=[]
+        # seq_daq = []
         
-        self.reader = CounterReader(self.task.in_stream)
+        # for item in n_sample:
+        #     seq_aom += [(laser_part,HIGH),(mw_start+item+laser_start,LOW),(laser_part,HIGH)]
+        #     seq_switch += [(laser_part+mw_start,LOW),(item,HIGH),(laser_start+laser_part,LOW)]
+        #     seq_daq += [(laser_part+mw_start+item+daq_start,LOW),(daq_high,HIGH),(daq_gate-daq_high,LOW),(daq_high,HIGH),(laser_part-daq_start+laser_start-daq_high-daq_gate,LOW)]
+        
+        # #create the sequence
+        # self.seq = Sequence()
+        
+        # #set digital channels
+        # self.seq.setDigital(ch_aom, seq_aom)
+        # self.seq.setDigital(ch_switch, seq_switch)
+        # self.seq.setDigital(ch_daq, seq_daq)
+
+        # self.seq.plot()
+        # self.task.timing.cfg_samp_clk_timing(
+        #     rate=2E6,
+        #     source='/Dev2/PFI1',
+        #     active_edge=Edge.RISING,
+        #     sample_mode=AcquisitionType.CONTINUOUS,
+        #     samps_per_chan=2*len(n_sample)
+        # )
+        # self.pulse_streamer_info_msg.emit('Counter input channel: '+self.odmr_ctr_channel.ci_count_edges_term)
+        
+        # self.reader = CounterReader(self.task.in_stream)
     
     def pulser_daq_on_activate(self):
         '''
