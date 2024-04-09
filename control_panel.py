@@ -488,12 +488,19 @@ class MyWindow(pulse_odmr_ui.Ui_Form, QWidget):
                 seq_aom += [(self.ramsey_laser_part,HIGH),(self.ramsey_mw_start+item+self.ramsey_laser_start+self.ramsey_mw_pi,LOW),(self.ramsey_laser_part,HIGH)]
                 seq_switch += [(self.ramsey_laser_part+self.ramsey_mw_start,LOW),(int(self.ramsey_mw_pi/2),HIGH),(item,LOW),(int(self.ramsey_mw_pi/2),HIGH),
                                (self.ramsey_laser_start+self.ramsey_laser_part,LOW)]
-                seq_daq += [(self.ramsey_laser_part+self.ramsey_mw_start+item+self.rabi_daq_start+self.ramsey_mw_pi,LOW),(self.daq_high,HIGH),
-                            (self.rabi_daq_gate-self.daq_high,LOW),(self.daq_high,HIGH),
-                            (self.rabi_laser_part-self.rabi_daq_start+self.rabi_laser_start-self.daq_high-self.rabi_daq_gate,LOW)]
+                seq_daq += [(self.ramsey_laser_part+self.ramsey_mw_start+item+self.ramsey_daq_start+self.ramsey_mw_pi,LOW),(self.daq_high,HIGH),
+                            (self.ramsey_daq_gate-self.daq_high,LOW),(self.daq_high,HIGH),
+                            (self.ramsey_laser_part-self.ramsey_daq_start+self.ramsey_laser_start-self.daq_high-self.ramsey_daq_gate,LOW)]
             return seq_aom, seq_switch, seq_daq, self.ramsey_n_sample
         elif current_type == 'Hahn Echo':
-            pass
+            for item in self.hahn_n_sample:
+                seq_aom += [(self.hahn_laser_part,HIGH),(self.hahn_mw_start+item*2+self.hahn_laser_start+self.hahn_mw_pi*2,LOW),(self.hahn_laser_part,HIGH)]
+                seq_switch += [(self.hahn_laser_part+self.hahn_mw_start,LOW),(int(self.hahn_mw_pi/2),HIGH),(item,LOW),(self.hahn_mw_pi,HIGH),(item,LOW),
+                               (int(self.hahn_mw_pi/2),HIGH),(self.hahn_laser_start+self.hahn_laser_part,LOW)]
+                seq_daq += [(self.hahn_laser_part+self.hahn_mw_start+2*item+self.hahn_daq_start+self.hahn_mw_pi*2,LOW),(self.daq_high,HIGH),
+                            (self.hahn_daq_gate-self.daq_high,LOW),(self.daq_high,HIGH),
+                            (self.hahn_laser_part-self.hahn_daq_start+self.hahn_laser_start-self.daq_high-self.hahn_daq_gate,LOW)]
+            return seq_aom, seq_switch, seq_daq, self.hahn_n_sample
     def set_pulse_and_count(self, ch_aom, ch_switch, ch_daq, **kwargs):
         # print(ch_aom, ch_switch, ch_daq, ch_mw_source)
         current_tab_index = self.pulse_tab.currentIndex()
