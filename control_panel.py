@@ -251,10 +251,12 @@ class MyWindow(pulse_odmr_ui.Ui_Form, QWidget):
         self.data_position_spbx.setValue(data_pos)
 
     def plot_ui_init(self):
+        current_tab_index = self.pulse_tab.currentIndex()
+        current_tab_name = self.pulse_tab.tabText(current_tab_index)
         self.rabi_curve = self.create_plot_widget(
-            xlabel='Time bins (ns)',
+            xlabel='Time (ns)',
             ylabel='Counts(a.u.)',
-            title='Check Delay',
+            title=current_tab_name,
             frame=self.rabi_graph_frame,
             infiniteLine=False
         )
@@ -269,6 +271,7 @@ class MyWindow(pulse_odmr_ui.Ui_Form, QWidget):
         )
 
         self.rabi_set_btn.clicked.connect(lambda: self.set_pulse_and_count(**self._channels))
+        self.rabi_set_btn.clicked.connect(self.plot_ui_init)
         self.rabi_start_btn.clicked.connect(self.rabi_start)
         self.rabi_stop_btn.clicked.connect(self.rabi_stop)
     def rabi_stop(self):
@@ -453,7 +456,9 @@ class MyWindow(pulse_odmr_ui.Ui_Form, QWidget):
                 'opt_daq_start':opt_daq_start,
                 'opt_tau':opt_tau,
                 'opt_inner_repeat':opt_inner_repeat,
-                'opt_n_sample':opt_n_sample
+                'opt_n_sample':opt_n_sample,
+                'opt_laser_part':int(opt_laser_gate/2),
+                'daq_high':daq_high
             }
         } 
 
@@ -501,6 +506,15 @@ class MyWindow(pulse_odmr_ui.Ui_Form, QWidget):
                             (self.hahn_daq_gate-self.daq_high,LOW),(self.daq_high,HIGH),
                             (self.hahn_laser_part-self.hahn_daq_start+self.hahn_laser_start-self.daq_high-self.hahn_daq_gate,LOW)]
             return seq_aom, seq_switch, seq_daq, self.hahn_n_sample
+        elif current_type == 'Optimization':
+            for item in self.opt_n_sample:
+                seq_aom += [(self.opt_laser_part,HIGH),(self.opt_mw_start+item*2+self.opt_laser_start+self.opt_tau*2,LOW),(self.opt_laser_part,HIGH)]
+                seq_switch += [(self.opt_laser_part+self.opt_mw_start,LOW),(int(item/2),HIGH),(self.opt_tau,LOW),(item,HIGH),(self.opt_tau,LOW),
+                               (int(item/2),HIGH),(self.opt_laser_start+self.opt_laser_part,LOW)]
+                seq_daq += [(self.opt_laser_part+self.opt_mw_start+2*item+self.opt_daq_start+self.opt_tau*2,LOW),(self.daq_high,HIGH),
+                            (self.opt_daq_gate-self.daq_high,LOW),(self.daq_high,HIGH),
+                            (self.opt_laser_part-self.opt_daq_start+self.opt_laser_start-self.daq_high-self.opt_daq_gate,LOW)]
+            return seq_aom, seq_switch, seq_daq, self.opt_n_sample
     def set_pulse_and_count(self, ch_aom, ch_switch, ch_daq, **kwargs):
         # print(ch_aom, ch_switch, ch_daq, ch_mw_source)
         current_tab_index = self.pulse_tab.currentIndex()
