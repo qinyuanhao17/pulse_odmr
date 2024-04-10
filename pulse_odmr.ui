@@ -344,267 +344,390 @@ QPushButton:pressed {
            <property name="frameShadow">
             <enum>QFrame::Raised</enum>
            </property>
-           <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="2,3">
-            <item>
-             <layout class="QVBoxLayout" name="verticalLayout_2">
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="1,2">
+           <widget class="QGroupBox" name="groupBox_9">
+            <property name="geometry">
+             <rect>
+              <x>847</x>
+              <y>92</y>
+              <width>951</width>
+              <height>881</height>
+             </rect>
+            </property>
+            <property name="title">
+             <string>DAQ</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_9">
+             <item>
+              <widget class="QGroupBox" name="groupBox_7">
+               <property name="title">
+                <string>Pulse-ODMR</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,0,10">
                 <item>
-                 <widget class="QGroupBox" name="groupBox_3">
+                 <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="12,1,2">
+                  <property name="spacing">
+                   <number>5</number>
+                  </property>
+                  <item>
+                   <spacer name="horizontalSpacer_4">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_5">
+                    <property name="text">
+                     <string>Repeat：</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="repeat_spbx">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Adobe Arabic</family>
+                      <pointsize>18</pointsize>
+                     </font>
+                    </property>
+                    <property name="readOnly">
+                     <bool>true</bool>
+                    </property>
+                    <property name="buttonSymbols">
+                     <enum>QAbstractSpinBox::NoButtons</enum>
+                    </property>
+                    <property name="maximum">
+                     <number>1000000</number>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="Line" name="line">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QFrame" name="rabi_graph_frame">
                   <property name="styleSheet">
-                   <string notr="true"/>
+                   <string notr="true">background-color: rgb(240, 240, 240);</string>
                   </property>
-                  <property name="title">
-                   <string>RF Control Panel</string>
+                  <property name="frameShape">
+                   <enum>QFrame::Panel</enum>
                   </property>
-                  <layout class="QVBoxLayout" name="verticalLayout_4">
-                   <item>
-                    <layout class="QHBoxLayout" name="horizontalLayout" stretch="3,4,1,2">
-                     <item>
-                      <widget class="QLabel" name="label_4">
-                       <property name="text">
-                        <string>RF Generator:</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QComboBox" name="rf_cbx"/>
-                     </item>
-                     <item>
-                      <widget class="QPushButton" name="rf_visa_rst_btn">
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="icon">
-                        <iconset resource="resources.qrc">
-                         <normaloff>:/my_icons/images/icons/restore.svg</normaloff>:/my_icons/images/icons/restore.svg</iconset>
-                       </property>
-                       <property name="iconSize">
-                        <size>
-                         <width>20</width>
-                         <height>25</height>
-                        </size>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QPushButton" name="rf_connect_btn">
-                       <property name="styleSheet">
-                        <string notr="true">QPushButton{
+                  <property name="frameShadow">
+                   <enum>QFrame::Sunken</enum>
+                  </property>
+                  <property name="lineWidth">
+                   <number>3</number>
+                  </property>
+                  <property name="midLineWidth">
+                   <number>3</number>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="groupBox_11">
+               <property name="title">
+                <string>Data Processing Info</string>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_7">
+                <property name="leftMargin">
+                 <number>5</number>
+                </property>
+                <property name="topMargin">
+                 <number>5</number>
+                </property>
+                <property name="rightMargin">
+                 <number>5</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>5</number>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QScrollArea" name="data_processing_scroll">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="widgetResizable">
+                   <bool>true</bool>
+                  </property>
+                  <widget class="QWidget" name="scrollAreaWidgetContents_3">
+                   <property name="geometry">
+                    <rect>
+                     <x>0</x>
+                     <y>0</y>
+                     <width>913</width>
+                     <height>85</height>
+                    </rect>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_24">
+                    <item>
+                     <widget class="QLabel" name="data_processing_msg">
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="layoutWidget">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>100</y>
+              <width>826</width>
+              <height>509</height>
+             </rect>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="1,2">
+             <item>
+              <widget class="QGroupBox" name="groupBox_3">
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="title">
+                <string>RF Control Panel</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_4">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout" stretch="3,4,1,2">
+                  <item>
+                   <widget class="QLabel" name="label_4">
+                    <property name="text">
+                     <string>RF Generator:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="rf_cbx"/>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="rf_visa_rst_btn">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="resources.qrc">
+                      <normaloff>:/my_icons/images/icons/restore.svg</normaloff>:/my_icons/images/icons/restore.svg</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>20</width>
+                      <height>25</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="rf_connect_btn">
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{
 	font: 10pt &quot;Yu Gothic UI&quot;;	
 
 }</string>
-                       </property>
-                       <property name="text">
-                        <string>Connect</string>
-                       </property>
-                       <property name="icon">
-                        <iconset resource="resources.qrc">
-                         <normaloff>:/my_icons/images/icons/connect.svg</normaloff>:/my_icons/images/icons/connect.svg</iconset>
-                       </property>
-                       <property name="iconSize">
-                        <size>
-                         <width>20</width>
-                         <height>25</height>
-                        </size>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                   <item>
-                    <widget class="QGroupBox" name="groupBox_13">
-                     <property name="title">
-                      <string>CW-Mode</string>
+                    </property>
+                    <property name="text">
+                     <string>Connect</string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="resources.qrc">
+                      <normaloff>:/my_icons/images/icons/connect.svg</normaloff>:/my_icons/images/icons/connect.svg</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>20</width>
+                      <height>25</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QGroupBox" name="groupBox_13">
+                  <property name="title">
+                   <string>CW-Mode</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_4">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_17">
+                     <property name="text">
+                      <string>Power(dBm):</string>
                      </property>
-                     <layout class="QGridLayout" name="gridLayout_4">
-                      <item row="0" column="0">
-                       <widget class="QLabel" name="label_17">
-                        <property name="text">
-                         <string>Power(dBm):</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="1" column="0" colspan="2">
-                       <widget class="QLabel" name="label_18">
-                        <property name="text">
-                         <string>Frequency(MHz):</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="1" column="2">
-                       <widget class="QDoubleSpinBox" name="cw_freq_spbx">
-                        <property name="minimum">
-                         <double>100.000000000000000</double>
-                        </property>
-                        <property name="maximum">
-                         <double>6000.000000000000000</double>
-                        </property>
-                        <property name="singleStep">
-                         <double>0.100000000000000</double>
-                        </property>
-                        <property name="value">
-                         <double>2860.000000000000000</double>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="1" column="3">
-                       <widget class="QPushButton" name="rf_ply_stp_btn">
-                        <property name="text">
-                         <string>RF On</string>
-                        </property>
-                        <property name="icon">
-                         <iconset resource="resources.qrc">
-                          <normaloff>:/my_icons/images/icons/play.svg</normaloff>:/my_icons/images/icons/play.svg</iconset>
-                        </property>
-                        <property name="iconSize">
-                         <size>
-                          <width>20</width>
-                          <height>25</height>
-                         </size>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="0" column="2">
-                       <widget class="QDoubleSpinBox" name="cw_power_spbx">
-                        <property name="minimum">
-                         <double>-50.000000000000000</double>
-                        </property>
-                        <property name="maximum">
-                         <double>10.000000000000000</double>
-                        </property>
-                        <property name="singleStep">
-                         <double>0.100000000000000</double>
-                        </property>
-                        <property name="value">
-                         <double>-30.000000000000000</double>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
                     </widget>
                    </item>
-                   <item>
-                    <widget class="QGroupBox" name="groupBox_6">
-                     <property name="title">
-                      <string>N5181A Setup Info</string>
+                   <item row="1" column="0" colspan="2">
+                    <widget class="QLabel" name="label_18">
+                     <property name="text">
+                      <string>Frequency(MHz):</string>
                      </property>
-                     <layout class="QGridLayout" name="gridLayout_2">
-                      <property name="leftMargin">
-                       <number>5</number>
-                      </property>
-                      <property name="topMargin">
-                       <number>5</number>
-                      </property>
-                      <property name="rightMargin">
-                       <number>5</number>
-                      </property>
-                      <property name="bottomMargin">
-                       <number>5</number>
-                      </property>
-                      <item row="0" column="0">
-                       <widget class="QScrollArea" name="rf_scroll">
-                        <property name="sizePolicy">
-                         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-                          <horstretch>0</horstretch>
-                          <verstretch>0</verstretch>
-                         </sizepolicy>
-                        </property>
-                        <property name="widgetResizable">
-                         <bool>true</bool>
-                        </property>
-                        <widget class="QWidget" name="scrollAreaWidgetContents">
-                         <property name="geometry">
-                          <rect>
-                           <x>0</x>
-                           <y>0</y>
-                           <width>312</width>
-                           <height>116</height>
-                          </rect>
-                         </property>
-                         <layout class="QVBoxLayout" name="verticalLayout_7">
-                          <item>
-                           <widget class="QLabel" name="rf_msg">
-                            <property name="text">
-                             <string/>
-                            </property>
-                           </widget>
-                          </item>
-                         </layout>
-                        </widget>
-                       </widget>
-                      </item>
-                     </layout>
+                    </widget>
+                   </item>
+                   <item row="1" column="2">
+                    <widget class="QDoubleSpinBox" name="cw_freq_spbx">
+                     <property name="minimum">
+                      <double>100.000000000000000</double>
+                     </property>
+                     <property name="maximum">
+                      <double>6000.000000000000000</double>
+                     </property>
+                     <property name="singleStep">
+                      <double>0.100000000000000</double>
+                     </property>
+                     <property name="value">
+                      <double>2860.000000000000000</double>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="3">
+                    <widget class="QPushButton" name="rf_ply_stp_btn">
+                     <property name="text">
+                      <string>RF On</string>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="resources.qrc">
+                       <normaloff>:/my_icons/images/icons/play.svg</normaloff>:/my_icons/images/icons/play.svg</iconset>
+                     </property>
+                     <property name="iconSize">
+                      <size>
+                       <width>20</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QDoubleSpinBox" name="cw_power_spbx">
+                     <property name="minimum">
+                      <double>-50.000000000000000</double>
+                     </property>
+                     <property name="maximum">
+                      <double>10.000000000000000</double>
+                     </property>
+                     <property name="singleStep">
+                      <double>0.100000000000000</double>
+                     </property>
+                     <property name="value">
+                      <double>-30.000000000000000</double>
+                     </property>
                     </widget>
                    </item>
                   </layout>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QGroupBox" name="groupBox">
+                 <widget class="QGroupBox" name="groupBox_6">
                   <property name="title">
-                   <string>PulseStreamer</string>
+                   <string>N5181A Setup Info</string>
                   </property>
-                  <layout class="QVBoxLayout" name="verticalLayout_6">
-                   <item>
-                    <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="1,1">
+                  <layout class="QGridLayout" name="gridLayout_2">
+                   <property name="leftMargin">
+                    <number>5</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>5</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>5</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>5</number>
+                   </property>
+                   <item row="0" column="0">
+                    <widget class="QScrollArea" name="rf_scroll">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="widgetResizable">
+                      <bool>true</bool>
+                     </property>
+                     <widget class="QWidget" name="scrollAreaWidgetContents">
+                      <property name="geometry">
+                       <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>312</width>
+                        <height>116</height>
+                       </rect>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_7">
+                       <item>
+                        <widget class="QLabel" name="rf_msg">
+                         <property name="text">
+                          <string/>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="groupBox">
+               <property name="title">
+                <string>PulseStreamer</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_6">
+                <item>
+                 <widget class="QGroupBox" name="groupBox_10">
+                  <property name="title">
+                   <string>Pulse Sequence</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_6">
+                   <property name="leftMargin">
+                    <number>5</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>5</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>5</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>5</number>
+                   </property>
+                   <item row="1" column="0">
+                    <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="5,2">
                      <item>
-                      <widget class="QGroupBox" name="groupBox_4">
-                       <property name="title">
-                        <string>Play</string>
-                       </property>
-                       <layout class="QGridLayout" name="gridLayout_3">
-                        <item row="0" column="0">
-                         <widget class="QPushButton" name="rabi_start_btn">
-                          <property name="styleSheet">
-                           <string notr="true">QPushButton{
-	font: 10pt &quot;Yu Gothic UI&quot;;	
-
-}</string>
-                          </property>
-                          <property name="text">
-                           <string>Start</string>
-                          </property>
-                          <property name="icon">
-                           <iconset resource="resources.qrc">
-                            <normaloff>:/my_icons/images/icons/play.svg</normaloff>:/my_icons/images/icons/play.svg</iconset>
-                          </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>20</width>
-                            <height>25</height>
-                           </size>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="0" column="1">
-                         <widget class="QPushButton" name="rabi_stop_btn">
-                          <property name="styleSheet">
-                           <string notr="true">QPushButton{
-	font: 10pt &quot;Yu Gothic UI&quot;;	
-
-}</string>
-                          </property>
-                          <property name="text">
-                           <string>Stop</string>
-                          </property>
-                          <property name="icon">
-                           <iconset resource="resources.qrc">
-                            <normaloff>:/my_icons/images/icons/stop.svg</normaloff>:/my_icons/images/icons/stop.svg</iconset>
-                          </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>20</width>
-                            <height>25</height>
-                           </size>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                     </item>
-                     <item>
-                      <spacer name="horizontalSpacer_5">
+                      <spacer name="horizontalSpacer">
                        <property name="orientation">
                         <enum>Qt::Horizontal</enum>
                        </property>
@@ -616,1114 +739,1132 @@ QPushButton:pressed {
                        </property>
                       </spacer>
                      </item>
-                    </layout>
-                   </item>
-                   <item>
-                    <widget class="QGroupBox" name="groupBox_10">
-                     <property name="title">
-                      <string>Pulse Sequence</string>
-                     </property>
-                     <layout class="QGridLayout" name="gridLayout_6">
-                      <property name="leftMargin">
-                       <number>5</number>
-                      </property>
-                      <property name="topMargin">
-                       <number>5</number>
-                      </property>
-                      <property name="rightMargin">
-                       <number>5</number>
-                      </property>
-                      <property name="bottomMargin">
-                       <number>5</number>
-                      </property>
-                      <item row="1" column="0">
-                       <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="5,2">
-                        <item>
-                         <spacer name="horizontalSpacer">
-                          <property name="orientation">
-                           <enum>Qt::Horizontal</enum>
-                          </property>
-                          <property name="sizeHint" stdset="0">
-                           <size>
-                            <width>40</width>
-                            <height>20</height>
-                           </size>
-                          </property>
-                         </spacer>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="rabi_set_btn">
-                          <property name="styleSheet">
-                           <string notr="true">QPushButton{
+                     <item>
+                      <widget class="QPushButton" name="rabi_set_btn">
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
 	font: 10pt &quot;Yu Gothic UI&quot;;	
 
 }</string>
-                          </property>
-                          <property name="text">
-                           <string>Set</string>
-                          </property>
-                          <property name="icon">
-                           <iconset resource="resources.qrc">
-                            <normaloff>:/my_icons/images/icons/download.svg</normaloff>:/my_icons/images/icons/download.svg</iconset>
-                          </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>20</width>
-                            <height>25</height>
-                           </size>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </item>
-                      <item row="0" column="0">
-                       <widget class="QTabWidget" name="pulse_tab">
-                        <property name="currentIndex">
-                         <number>0</number>
-                        </property>
-                        <widget class="QWidget" name="t1">
-                         <attribute name="title">
-                          <string>T1</string>
-                         </attribute>
-                         <layout class="QGridLayout" name="gridLayout_8">
-                          <item row="0" column="1">
-                           <widget class="QSpinBox" name="t1_laser_start_spbx">
-                            <property name="maximum">
-                             <number>500000</number>
-                            </property>
-                            <property name="value">
-                             <number>0</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="3" column="2">
-                           <widget class="QLabel" name="label_25">
-                            <property name="text">
-                             <string>InnerRepeat:</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="0">
-                           <widget class="QLabel" name="label_22">
-                            <property name="text">
-                             <string>LaserGate(μs):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="0">
-                           <widget class="QLabel" name="label_13">
-                            <property name="text">
-                             <string>LaserStart(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="1">
-                           <widget class="QSpinBox" name="t1_laser_gate_spbx">
-                            <property name="maximum">
-                             <number>1000</number>
-                            </property>
-                            <property name="value">
-                             <number>30</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="3" column="3">
-                           <widget class="QSpinBox" name="t1_inner_repeat_spbx">
-                            <property name="maximum">
-                             <number>100000000</number>
-                            </property>
-                            <property name="value">
-                             <number>200</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="2">
-                           <widget class="QLabel" name="label_8">
-                            <property name="text">
-                             <string>DaqStart(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="3">
-                           <widget class="QSpinBox" name="t1_daq_start_spbx">
-                            <property name="maximum">
-                             <number>1000000</number>
-                            </property>
-                            <property name="value">
-                             <number>300</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="2">
-                           <widget class="QLabel" name="label_26">
-                            <property name="text">
-                             <string>DaqGate(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="3">
-                           <widget class="QSpinBox" name="t1_daq_gate_spbx">
-                            <property name="maximum">
-                             <number>5000</number>
-                            </property>
-                            <property name="value">
-                             <number>500</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="2" column="1">
-                           <widget class="QSpinBox" name="t1_span_spbx">
-                            <property name="maximum">
-                             <number>1000000</number>
-                            </property>
-                            <property name="value">
-                             <number>1500</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="2" column="0">
-                           <widget class="QLabel" name="label_9">
-                            <property name="text">
-                             <string>T1Span(μs):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="3" column="0">
-                           <widget class="QLabel" name="label_10">
-                            <property name="text">
-                             <string>T1Step(μs):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="3" column="1">
-                           <widget class="QSpinBox" name="t1_step_spbx">
-                            <property name="maximum">
-                             <number>100000</number>
-                            </property>
-                            <property name="value">
-                             <number>10</number>
-                            </property>
-                           </widget>
-                          </item>
-                         </layout>
+                       </property>
+                       <property name="text">
+                        <string>Set</string>
+                       </property>
+                       <property name="icon">
+                        <iconset resource="resources.qrc">
+                         <normaloff>:/my_icons/images/icons/download.svg</normaloff>:/my_icons/images/icons/download.svg</iconset>
+                       </property>
+                       <property name="iconSize">
+                        <size>
+                         <width>20</width>
+                         <height>25</height>
+                        </size>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item row="0" column="0">
+                    <widget class="QTabWidget" name="pulse_tab">
+                     <property name="currentIndex">
+                      <number>0</number>
+                     </property>
+                     <widget class="QWidget" name="t1">
+                      <attribute name="title">
+                       <string>T1</string>
+                      </attribute>
+                      <layout class="QGridLayout" name="gridLayout_8">
+                       <item row="0" column="1">
+                        <widget class="QSpinBox" name="t1_laser_start_spbx">
+                         <property name="maximum">
+                          <number>500000</number>
+                         </property>
+                         <property name="value">
+                          <number>0</number>
+                         </property>
                         </widget>
-                        <widget class="QWidget" name="rabi">
-                         <attribute name="title">
-                          <string>Rabi</string>
-                         </attribute>
-                         <layout class="QGridLayout" name="gridLayout">
-                          <item row="0" column="3">
-                           <widget class="QSpinBox" name="rabi_mw_start_spbx">
-                            <property name="maximum">
-                             <number>20000</number>
-                            </property>
-                            <property name="value">
-                             <number>1000</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="1">
-                           <widget class="QSpinBox" name="rabi_laser_start_spbx">
-                            <property name="maximum">
-                             <number>500</number>
-                            </property>
-                            <property name="value">
-                             <number>500</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="0">
-                           <widget class="QLabel" name="label_12">
-                            <property name="text">
-                             <string>LaserStart(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="3">
-                           <widget class="QSpinBox" name="rabi_mw_gate_spbx">
-                            <property name="maximum">
-                             <number>10000000</number>
-                            </property>
-                            <property name="value">
-                             <number>200000</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="2">
-                           <widget class="QLabel" name="label_11">
-                            <property name="text">
-                             <string>MWGate(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="3" column="3">
-                           <widget class="QSpinBox" name="rabi_inner_repeat_spbx">
-                            <property name="maximum">
-                             <number>100000000</number>
-                            </property>
-                            <property name="value">
-                             <number>200</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="2" column="3">
-                           <widget class="QSpinBox" name="rabi_mw_step_spbx">
-                            <property name="maximum">
-                             <number>100000000</number>
-                            </property>
-                            <property name="value">
-                             <number>1000</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="3" column="0">
-                           <widget class="QLabel" name="label_14">
-                            <property name="text">
-                             <string>DaqGate(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="1">
-                           <widget class="QSpinBox" name="rabi_laser_gate_spbx">
-                            <property name="maximum">
-                             <number>1000</number>
-                            </property>
-                            <property name="value">
-                             <number>15</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="2" column="1">
-                           <widget class="QSpinBox" name="rabi_daq_start_spbx">
-                            <property name="maximum">
-                             <number>1000000</number>
-                            </property>
-                            <property name="value">
-                             <number>800</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="0">
-                           <widget class="QLabel" name="label_16">
-                            <property name="text">
-                             <string>LaserGate(μs):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="2">
-                           <widget class="QLabel" name="label_19">
-                            <property name="text">
-                             <string>MWStart(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="3" column="2">
-                           <widget class="QLabel" name="label_20">
-                            <property name="text">
-                             <string>InnerRepeat:</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="2" column="0">
-                           <widget class="QLabel" name="label_7">
-                            <property name="text">
-                             <string>DaqStart(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="2" column="2">
-                           <widget class="QLabel" name="label_15">
-                            <property name="text">
-                             <string>MWStep(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="3" column="1">
-                           <widget class="QSpinBox" name="rabi_daq_gate_spbx">
-                            <property name="maximum">
-                             <number>5000</number>
-                            </property>
-                            <property name="value">
-                             <number>500</number>
-                            </property>
-                           </widget>
-                          </item>
-                         </layout>
+                       </item>
+                       <item row="3" column="2">
+                        <widget class="QLabel" name="label_25">
+                         <property name="text">
+                          <string>InnerRepeat:</string>
+                         </property>
                         </widget>
-                        <widget class="QWidget" name="ramsey">
-                         <attribute name="title">
-                          <string>Ramsey</string>
-                         </attribute>
-                         <layout class="QGridLayout" name="gridLayout_9">
-                          <item row="1" column="3">
-                           <widget class="QSpinBox" name="ramsey_tau_step_spbx">
-                            <property name="maximum">
-                             <number>100000000</number>
-                            </property>
-                            <property name="value">
-                             <number>1000</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="0">
-                           <widget class="QLabel" name="label_24">
-                            <property name="text">
-                             <string>LaserGate(μs):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="2">
-                           <widget class="QLabel" name="label_32">
-                            <property name="text">
-                             <string>τSpan(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="5" column="3">
-                           <widget class="QSpinBox" name="ramsey_inner_repeat_spbx">
-                            <property name="maximum">
-                             <number>100000000</number>
-                            </property>
-                            <property name="value">
-                             <number>200</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="1">
-                           <widget class="QSpinBox" name="ramsey_laser_gate_spbx">
-                            <property name="maximum">
-                             <number>1000</number>
-                            </property>
-                            <property name="value">
-                             <number>15</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="1">
-                           <widget class="QSpinBox" name="ramsey_laser_start_spbx">
-                            <property name="maximum">
-                             <number>500</number>
-                            </property>
-                            <property name="value">
-                             <number>500</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="2" column="0">
-                           <widget class="QLabel" name="label_27">
-                            <property name="text">
-                             <string>DaqStart(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="3">
-                           <widget class="QSpinBox" name="ramsey_tau_span_spbx">
-                            <property name="maximum">
-                             <number>100000000</number>
-                            </property>
-                            <property name="value">
-                             <number>1000</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="2" column="1">
-                           <widget class="QSpinBox" name="ramsey_daq_start_spbx">
-                            <property name="maximum">
-                             <number>1000000</number>
-                            </property>
-                            <property name="value">
-                             <number>800</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="0">
-                           <widget class="QLabel" name="label_21">
-                            <property name="text">
-                             <string>LaserStart(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="2" column="3">
-                           <widget class="QSpinBox" name="ramsey_mw_start_spbx">
-                            <property name="maximum">
-                             <number>20000</number>
-                            </property>
-                            <property name="value">
-                             <number>1000</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="2" column="2">
-                           <widget class="QLabel" name="label_28">
-                            <property name="text">
-                             <string>MWStart(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="5" column="2">
-                           <widget class="QLabel" name="label_30">
-                            <property name="text">
-                             <string>InnerRepeat:</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="2">
-                           <widget class="QLabel" name="label_29">
-                            <property name="text">
-                             <string>τStep(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="4" column="2">
-                           <widget class="QLabel" name="label_84">
-                            <property name="text">
-                             <string>MWπ(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="4" column="3">
-                           <widget class="QSpinBox" name="ramsey_mw_pi_spbx">
-                            <property name="maximum">
-                             <number>20000</number>
-                            </property>
-                            <property name="value">
-                             <number>1000</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="4" column="0">
-                           <widget class="QLabel" name="label_31">
-                            <property name="text">
-                             <string>DaqGate(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="4" column="1">
-                           <widget class="QSpinBox" name="ramsey_daq_gate_spbx">
-                            <property name="maximum">
-                             <number>5000</number>
-                            </property>
-                            <property name="value">
-                             <number>500</number>
-                            </property>
-                           </widget>
-                          </item>
-                         </layout>
+                       </item>
+                       <item row="1" column="0">
+                        <widget class="QLabel" name="label_22">
+                         <property name="text">
+                          <string>LaserGate(μs):</string>
+                         </property>
                         </widget>
-                        <widget class="QWidget" name="hahn">
-                         <attribute name="title">
-                          <string>Hahn Echo</string>
-                         </attribute>
-                         <layout class="QGridLayout" name="gridLayout_19">
-                          <item row="0" column="3">
-                           <widget class="QSpinBox" name="hahn_tau_span_spbx">
-                            <property name="maximum">
-                             <number>100000000</number>
-                            </property>
-                            <property name="value">
-                             <number>1000</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="2">
-                           <widget class="QLabel" name="label_37">
-                            <property name="text">
-                             <string>τStep(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="3" column="2">
-                           <widget class="QLabel" name="label_85">
-                            <property name="text">
-                             <string>MWStart(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="4" column="3">
-                           <widget class="QSpinBox" name="hahn_mw_pi_spbx">
-                            <property name="maximum">
-                             <number>20000</number>
-                            </property>
-                            <property name="value">
-                             <number>1000</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="3" column="3">
-                           <widget class="QSpinBox" name="hahn_mw_start_spbx">
-                            <property name="maximum">
-                             <number>20000</number>
-                            </property>
-                            <property name="value">
-                             <number>1000</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="0">
-                           <widget class="QLabel" name="label_23">
-                            <property name="text">
-                             <string>LaserStart(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="0">
-                           <widget class="QLabel" name="label_35">
-                            <property name="text">
-                             <string>LaserGate(μs):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="1">
-                           <widget class="QSpinBox" name="hahn_laser_gate_spbx">
-                            <property name="maximum">
-                             <number>1000</number>
-                            </property>
-                            <property name="value">
-                             <number>15</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="5" column="2">
-                           <widget class="QLabel" name="label_33">
-                            <property name="text">
-                             <string>InnerRepeat:</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="5" column="3">
-                           <widget class="QSpinBox" name="hahn_inner_repeat_spbx">
-                            <property name="maximum">
-                             <number>100000000</number>
-                            </property>
-                            <property name="value">
-                             <number>200</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="1">
-                           <widget class="QSpinBox" name="hahn_laser_start_spbx">
-                            <property name="maximum">
-                             <number>500</number>
-                            </property>
-                            <property name="value">
-                             <number>500</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="3">
-                           <widget class="QSpinBox" name="hahn_tau_step_spbx">
-                            <property name="maximum">
-                             <number>100000000</number>
-                            </property>
-                            <property name="value">
-                             <number>1000</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="2">
-                           <widget class="QLabel" name="label_39">
-                            <property name="text">
-                             <string>τSpan(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="4" column="2">
-                           <widget class="QLabel" name="label_38">
-                            <property name="text">
-                             <string>MWπ(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="3" column="0">
-                           <widget class="QLabel" name="label_34">
-                            <property name="text">
-                             <string>DaqStart(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="3" column="1">
-                           <widget class="QSpinBox" name="hahn_daq_start_spbx">
-                            <property name="maximum">
-                             <number>1000000</number>
-                            </property>
-                            <property name="value">
-                             <number>800</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="4" column="0">
-                           <widget class="QLabel" name="label_36">
-                            <property name="text">
-                             <string>DaqGate(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="4" column="1">
-                           <widget class="QSpinBox" name="hahn_daq_gate_spbx">
-                            <property name="maximum">
-                             <number>5000</number>
-                            </property>
-                            <property name="value">
-                             <number>500</number>
-                            </property>
-                           </widget>
-                          </item>
-                         </layout>
+                       </item>
+                       <item row="0" column="0">
+                        <widget class="QLabel" name="label_13">
+                         <property name="text">
+                          <string>LaserStart(ns):</string>
+                         </property>
                         </widget>
-                        <widget class="QWidget" name="tab">
-                         <attribute name="title">
-                          <string>Optimization</string>
-                         </attribute>
-                         <layout class="QGridLayout" name="gridLayout_20">
-                          <item row="1" column="3">
-                           <widget class="QSpinBox" name="opt_pi_stop_spbx">
-                            <property name="maximum">
-                             <number>100000000</number>
-                            </property>
-                            <property name="value">
-                             <number>1000</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="1">
-                           <widget class="QSpinBox" name="opt_laser_start_spbx">
-                            <property name="maximum">
-                             <number>500</number>
-                            </property>
-                            <property name="value">
-                             <number>500</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="5" column="2">
-                           <widget class="QLabel" name="label_76">
-                            <property name="text">
-                             <string>InnerRepeat:</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="2">
-                           <widget class="QLabel" name="label_80">
-                            <property name="text">
-                             <string>πStop(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="3" column="2">
-                           <widget class="QLabel" name="label_86">
-                            <property name="text">
-                             <string>πStep(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="0">
-                           <widget class="QLabel" name="label_78">
-                            <property name="text">
-                             <string>LaserGate(μs):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="1">
-                           <widget class="QSpinBox" name="opt_laser_gate_spbx">
-                            <property name="maximum">
-                             <number>1000</number>
-                            </property>
-                            <property name="value">
-                             <number>15</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="2">
-                           <widget class="QLabel" name="label_83">
-                            <property name="text">
-                             <string>πStart(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="3" column="3">
-                           <widget class="QSpinBox" name="opt_pi_step_spbx">
-                            <property name="maximum">
-                             <number>100000000</number>
-                            </property>
-                            <property name="value">
-                             <number>1000</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="0">
-                           <widget class="QLabel" name="label_82">
-                            <property name="text">
-                             <string>LaserStart(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="5" column="3">
-                           <widget class="QSpinBox" name="opt_inner_repeat_spbx">
-                            <property name="maximum">
-                             <number>100000000</number>
-                            </property>
-                            <property name="value">
-                             <number>200</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="3">
-                           <widget class="QSpinBox" name="opt_pi_start_spbx">
-                            <property name="maximum">
-                             <number>100000000</number>
-                            </property>
-                            <property name="value">
-                             <number>1000</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="4" column="2">
-                           <widget class="QLabel" name="label_81">
-                            <property name="text">
-                             <string>τ(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="4" column="3">
-                           <widget class="QSpinBox" name="opt_tau_spbx">
-                            <property name="maximum">
-                             <number>20000</number>
-                            </property>
-                            <property name="value">
-                             <number>1000</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="3" column="0">
-                           <widget class="QLabel" name="label_77">
-                            <property name="text">
-                             <string>DaqStart(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="3" column="1">
-                           <widget class="QSpinBox" name="opt_daq_start_spbx">
-                            <property name="maximum">
-                             <number>1000000</number>
-                            </property>
-                            <property name="value">
-                             <number>800</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="4" column="0">
-                           <widget class="QLabel" name="label_79">
-                            <property name="text">
-                             <string>DaqGate(ns):</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="4" column="1">
-                           <widget class="QSpinBox" name="opt_daq_gate_spbx">
-                            <property name="maximum">
-                             <number>5000</number>
-                            </property>
-                            <property name="value">
-                             <number>500</number>
-                            </property>
-                           </widget>
-                          </item>
-                         </layout>
+                       </item>
+                       <item row="1" column="1">
+                        <widget class="QSpinBox" name="t1_laser_gate_spbx">
+                         <property name="maximum">
+                          <number>1000</number>
+                         </property>
+                         <property name="value">
+                          <number>30</number>
+                         </property>
                         </widget>
-                       </widget>
-                      </item>
-                     </layout>
+                       </item>
+                       <item row="3" column="3">
+                        <widget class="QSpinBox" name="t1_inner_repeat_spbx">
+                         <property name="maximum">
+                          <number>100000000</number>
+                         </property>
+                         <property name="value">
+                          <number>200</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="2">
+                        <widget class="QLabel" name="label_8">
+                         <property name="text">
+                          <string>DaqStart(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="3">
+                        <widget class="QSpinBox" name="t1_daq_start_spbx">
+                         <property name="maximum">
+                          <number>1000000</number>
+                         </property>
+                         <property name="value">
+                          <number>300</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="2">
+                        <widget class="QLabel" name="label_26">
+                         <property name="text">
+                          <string>DaqGate(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="3">
+                        <widget class="QSpinBox" name="t1_daq_gate_spbx">
+                         <property name="maximum">
+                          <number>5000</number>
+                         </property>
+                         <property name="value">
+                          <number>500</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="2" column="1">
+                        <widget class="QSpinBox" name="t1_span_spbx">
+                         <property name="maximum">
+                          <number>1000000</number>
+                         </property>
+                         <property name="value">
+                          <number>1500</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="2" column="0">
+                        <widget class="QLabel" name="label_9">
+                         <property name="text">
+                          <string>T1Span(μs):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="3" column="0">
+                        <widget class="QLabel" name="label_10">
+                         <property name="text">
+                          <string>T1Step(μs):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="3" column="1">
+                        <widget class="QSpinBox" name="t1_step_spbx">
+                         <property name="maximum">
+                          <number>100000</number>
+                         </property>
+                         <property name="value">
+                          <number>10</number>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                     <widget class="QWidget" name="rabi">
+                      <attribute name="title">
+                       <string>Rabi</string>
+                      </attribute>
+                      <layout class="QGridLayout" name="gridLayout">
+                       <item row="0" column="3">
+                        <widget class="QSpinBox" name="rabi_mw_start_spbx">
+                         <property name="maximum">
+                          <number>20000</number>
+                         </property>
+                         <property name="value">
+                          <number>1000</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="1">
+                        <widget class="QSpinBox" name="rabi_laser_start_spbx">
+                         <property name="maximum">
+                          <number>500</number>
+                         </property>
+                         <property name="value">
+                          <number>500</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="0">
+                        <widget class="QLabel" name="label_12">
+                         <property name="text">
+                          <string>LaserStart(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="3">
+                        <widget class="QSpinBox" name="rabi_mw_gate_spbx">
+                         <property name="maximum">
+                          <number>10000000</number>
+                         </property>
+                         <property name="value">
+                          <number>200000</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="2">
+                        <widget class="QLabel" name="label_11">
+                         <property name="text">
+                          <string>MWGate(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="3" column="3">
+                        <widget class="QSpinBox" name="rabi_inner_repeat_spbx">
+                         <property name="maximum">
+                          <number>100000000</number>
+                         </property>
+                         <property name="value">
+                          <number>200</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="2" column="3">
+                        <widget class="QSpinBox" name="rabi_mw_step_spbx">
+                         <property name="maximum">
+                          <number>100000000</number>
+                         </property>
+                         <property name="value">
+                          <number>1000</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="3" column="0">
+                        <widget class="QLabel" name="label_14">
+                         <property name="text">
+                          <string>DaqGate(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="1">
+                        <widget class="QSpinBox" name="rabi_laser_gate_spbx">
+                         <property name="maximum">
+                          <number>1000</number>
+                         </property>
+                         <property name="value">
+                          <number>15</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="2" column="1">
+                        <widget class="QSpinBox" name="rabi_daq_start_spbx">
+                         <property name="maximum">
+                          <number>1000000</number>
+                         </property>
+                         <property name="value">
+                          <number>800</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="0">
+                        <widget class="QLabel" name="label_16">
+                         <property name="text">
+                          <string>LaserGate(μs):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="2">
+                        <widget class="QLabel" name="label_19">
+                         <property name="text">
+                          <string>MWStart(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="3" column="2">
+                        <widget class="QLabel" name="label_20">
+                         <property name="text">
+                          <string>InnerRepeat:</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="2" column="0">
+                        <widget class="QLabel" name="label_7">
+                         <property name="text">
+                          <string>DaqStart(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="2" column="2">
+                        <widget class="QLabel" name="label_15">
+                         <property name="text">
+                          <string>MWStep(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="3" column="1">
+                        <widget class="QSpinBox" name="rabi_daq_gate_spbx">
+                         <property name="maximum">
+                          <number>5000</number>
+                         </property>
+                         <property name="value">
+                          <number>500</number>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                     <widget class="QWidget" name="ramsey">
+                      <attribute name="title">
+                       <string>Ramsey</string>
+                      </attribute>
+                      <layout class="QGridLayout" name="gridLayout_9">
+                       <item row="1" column="3">
+                        <widget class="QSpinBox" name="ramsey_tau_step_spbx">
+                         <property name="maximum">
+                          <number>100000000</number>
+                         </property>
+                         <property name="value">
+                          <number>1000</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="0">
+                        <widget class="QLabel" name="label_24">
+                         <property name="text">
+                          <string>LaserGate(μs):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="2">
+                        <widget class="QLabel" name="label_32">
+                         <property name="text">
+                          <string>τSpan(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="5" column="3">
+                        <widget class="QSpinBox" name="ramsey_inner_repeat_spbx">
+                         <property name="maximum">
+                          <number>100000000</number>
+                         </property>
+                         <property name="value">
+                          <number>200</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="1">
+                        <widget class="QSpinBox" name="ramsey_laser_gate_spbx">
+                         <property name="maximum">
+                          <number>1000</number>
+                         </property>
+                         <property name="value">
+                          <number>15</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="1">
+                        <widget class="QSpinBox" name="ramsey_laser_start_spbx">
+                         <property name="maximum">
+                          <number>500</number>
+                         </property>
+                         <property name="value">
+                          <number>500</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="2" column="0">
+                        <widget class="QLabel" name="label_27">
+                         <property name="text">
+                          <string>DaqStart(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="3">
+                        <widget class="QSpinBox" name="ramsey_tau_span_spbx">
+                         <property name="maximum">
+                          <number>100000000</number>
+                         </property>
+                         <property name="value">
+                          <number>1000</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="2" column="1">
+                        <widget class="QSpinBox" name="ramsey_daq_start_spbx">
+                         <property name="maximum">
+                          <number>1000000</number>
+                         </property>
+                         <property name="value">
+                          <number>800</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="0">
+                        <widget class="QLabel" name="label_21">
+                         <property name="text">
+                          <string>LaserStart(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="2" column="3">
+                        <widget class="QSpinBox" name="ramsey_mw_start_spbx">
+                         <property name="maximum">
+                          <number>20000</number>
+                         </property>
+                         <property name="value">
+                          <number>1000</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="2" column="2">
+                        <widget class="QLabel" name="label_28">
+                         <property name="text">
+                          <string>MWStart(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="5" column="2">
+                        <widget class="QLabel" name="label_30">
+                         <property name="text">
+                          <string>InnerRepeat:</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="2">
+                        <widget class="QLabel" name="label_29">
+                         <property name="text">
+                          <string>τStep(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="4" column="2">
+                        <widget class="QLabel" name="label_84">
+                         <property name="text">
+                          <string>MWπ(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="4" column="3">
+                        <widget class="QSpinBox" name="ramsey_mw_pi_spbx">
+                         <property name="maximum">
+                          <number>20000</number>
+                         </property>
+                         <property name="value">
+                          <number>1000</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="4" column="0">
+                        <widget class="QLabel" name="label_31">
+                         <property name="text">
+                          <string>DaqGate(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="4" column="1">
+                        <widget class="QSpinBox" name="ramsey_daq_gate_spbx">
+                         <property name="maximum">
+                          <number>5000</number>
+                         </property>
+                         <property name="value">
+                          <number>500</number>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                     <widget class="QWidget" name="hahn">
+                      <attribute name="title">
+                       <string>Hahn Echo</string>
+                      </attribute>
+                      <layout class="QGridLayout" name="gridLayout_19">
+                       <item row="0" column="3">
+                        <widget class="QSpinBox" name="hahn_tau_span_spbx">
+                         <property name="maximum">
+                          <number>100000000</number>
+                         </property>
+                         <property name="value">
+                          <number>1000</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="2">
+                        <widget class="QLabel" name="label_37">
+                         <property name="text">
+                          <string>τStep(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="3" column="2">
+                        <widget class="QLabel" name="label_85">
+                         <property name="text">
+                          <string>MWStart(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="4" column="3">
+                        <widget class="QSpinBox" name="hahn_mw_pi_spbx">
+                         <property name="maximum">
+                          <number>20000</number>
+                         </property>
+                         <property name="value">
+                          <number>1000</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="3" column="3">
+                        <widget class="QSpinBox" name="hahn_mw_start_spbx">
+                         <property name="maximum">
+                          <number>20000</number>
+                         </property>
+                         <property name="value">
+                          <number>1000</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="0">
+                        <widget class="QLabel" name="label_23">
+                         <property name="text">
+                          <string>LaserStart(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="0">
+                        <widget class="QLabel" name="label_35">
+                         <property name="text">
+                          <string>LaserGate(μs):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="1">
+                        <widget class="QSpinBox" name="hahn_laser_gate_spbx">
+                         <property name="maximum">
+                          <number>1000</number>
+                         </property>
+                         <property name="value">
+                          <number>15</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="5" column="2">
+                        <widget class="QLabel" name="label_33">
+                         <property name="text">
+                          <string>InnerRepeat:</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="5" column="3">
+                        <widget class="QSpinBox" name="hahn_inner_repeat_spbx">
+                         <property name="maximum">
+                          <number>100000000</number>
+                         </property>
+                         <property name="value">
+                          <number>200</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="1">
+                        <widget class="QSpinBox" name="hahn_laser_start_spbx">
+                         <property name="maximum">
+                          <number>500</number>
+                         </property>
+                         <property name="value">
+                          <number>500</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="3">
+                        <widget class="QSpinBox" name="hahn_tau_step_spbx">
+                         <property name="maximum">
+                          <number>100000000</number>
+                         </property>
+                         <property name="value">
+                          <number>1000</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="2">
+                        <widget class="QLabel" name="label_39">
+                         <property name="text">
+                          <string>τSpan(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="4" column="2">
+                        <widget class="QLabel" name="label_38">
+                         <property name="text">
+                          <string>MWπ(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="3" column="0">
+                        <widget class="QLabel" name="label_34">
+                         <property name="text">
+                          <string>DaqStart(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="3" column="1">
+                        <widget class="QSpinBox" name="hahn_daq_start_spbx">
+                         <property name="maximum">
+                          <number>1000000</number>
+                         </property>
+                         <property name="value">
+                          <number>800</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="4" column="0">
+                        <widget class="QLabel" name="label_36">
+                         <property name="text">
+                          <string>DaqGate(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="4" column="1">
+                        <widget class="QSpinBox" name="hahn_daq_gate_spbx">
+                         <property name="maximum">
+                          <number>5000</number>
+                         </property>
+                         <property name="value">
+                          <number>500</number>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                     <widget class="QWidget" name="tab">
+                      <attribute name="title">
+                       <string>Optimization</string>
+                      </attribute>
+                      <layout class="QGridLayout" name="gridLayout_20">
+                       <item row="1" column="3">
+                        <widget class="QSpinBox" name="opt_pi_stop_spbx">
+                         <property name="maximum">
+                          <number>100000000</number>
+                         </property>
+                         <property name="value">
+                          <number>1000</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="1">
+                        <widget class="QSpinBox" name="opt_laser_start_spbx">
+                         <property name="maximum">
+                          <number>500</number>
+                         </property>
+                         <property name="value">
+                          <number>500</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="5" column="2">
+                        <widget class="QLabel" name="label_76">
+                         <property name="text">
+                          <string>InnerRepeat:</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="2">
+                        <widget class="QLabel" name="label_80">
+                         <property name="text">
+                          <string>πStop(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="3" column="2">
+                        <widget class="QLabel" name="label_86">
+                         <property name="text">
+                          <string>πStep(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="0">
+                        <widget class="QLabel" name="label_78">
+                         <property name="text">
+                          <string>LaserGate(μs):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="1">
+                        <widget class="QSpinBox" name="opt_laser_gate_spbx">
+                         <property name="maximum">
+                          <number>1000</number>
+                         </property>
+                         <property name="value">
+                          <number>15</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="2">
+                        <widget class="QLabel" name="label_83">
+                         <property name="text">
+                          <string>πStart(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="3" column="3">
+                        <widget class="QSpinBox" name="opt_pi_step_spbx">
+                         <property name="maximum">
+                          <number>100000000</number>
+                         </property>
+                         <property name="value">
+                          <number>1000</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="0">
+                        <widget class="QLabel" name="label_82">
+                         <property name="text">
+                          <string>LaserStart(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="5" column="3">
+                        <widget class="QSpinBox" name="opt_inner_repeat_spbx">
+                         <property name="maximum">
+                          <number>100000000</number>
+                         </property>
+                         <property name="value">
+                          <number>200</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="3">
+                        <widget class="QSpinBox" name="opt_pi_start_spbx">
+                         <property name="maximum">
+                          <number>100000000</number>
+                         </property>
+                         <property name="value">
+                          <number>1000</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="4" column="2">
+                        <widget class="QLabel" name="label_81">
+                         <property name="text">
+                          <string>τ(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="4" column="3">
+                        <widget class="QSpinBox" name="opt_tau_spbx">
+                         <property name="maximum">
+                          <number>20000</number>
+                         </property>
+                         <property name="value">
+                          <number>1000</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="3" column="0">
+                        <widget class="QLabel" name="label_77">
+                         <property name="text">
+                          <string>DaqStart(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="3" column="1">
+                        <widget class="QSpinBox" name="opt_daq_start_spbx">
+                         <property name="maximum">
+                          <number>1000000</number>
+                         </property>
+                         <property name="value">
+                          <number>800</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="4" column="0">
+                        <widget class="QLabel" name="label_79">
+                         <property name="text">
+                          <string>DaqGate(ns):</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="4" column="1">
+                        <widget class="QSpinBox" name="opt_daq_gate_spbx">
+                         <property name="maximum">
+                          <number>5000</number>
+                         </property>
+                         <property name="value">
+                          <number>500</number>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
                     </widget>
                    </item>
-                   <item>
-                    <widget class="QGroupBox" name="groupBox_8">
-                     <property name="title">
-                      <string>Rabi Setup Info</string>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QGroupBox" name="groupBox_8">
+                  <property name="title">
+                   <string>Rabi Setup Info</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_5">
+                   <property name="leftMargin">
+                    <number>5</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>5</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>5</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>5</number>
+                   </property>
+                   <item row="0" column="0">
+                    <widget class="QScrollArea" name="pulse_streamer_scroll">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
                      </property>
-                     <layout class="QGridLayout" name="gridLayout_5">
-                      <property name="leftMargin">
-                       <number>5</number>
+                     <property name="widgetResizable">
+                      <bool>true</bool>
+                     </property>
+                     <widget class="QWidget" name="scrollAreaWidgetContents_2">
+                      <property name="geometry">
+                       <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>429</width>
+                        <height>85</height>
+                       </rect>
                       </property>
-                      <property name="topMargin">
-                       <number>5</number>
-                      </property>
-                      <property name="rightMargin">
-                       <number>5</number>
-                      </property>
-                      <property name="bottomMargin">
-                       <number>5</number>
-                      </property>
-                      <item row="0" column="0">
-                       <widget class="QScrollArea" name="pulse_streamer_scroll">
-                        <property name="sizePolicy">
-                         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-                          <horstretch>0</horstretch>
-                          <verstretch>0</verstretch>
-                         </sizepolicy>
-                        </property>
-                        <property name="widgetResizable">
-                         <bool>true</bool>
-                        </property>
-                        <widget class="QWidget" name="scrollAreaWidgetContents_2">
-                         <property name="geometry">
-                          <rect>
-                           <x>0</x>
-                           <y>0</y>
-                           <width>429</width>
-                           <height>85</height>
-                          </rect>
+                      <layout class="QVBoxLayout" name="verticalLayout_10">
+                       <item>
+                        <widget class="QLabel" name="pulse_streamer_msg">
+                         <property name="text">
+                          <string/>
                          </property>
-                         <layout class="QVBoxLayout" name="verticalLayout_10">
-                          <item>
-                           <widget class="QLabel" name="pulse_streamer_msg">
-                            <property name="text">
-                             <string/>
-                            </property>
-                           </widget>
-                          </item>
-                         </layout>
                         </widget>
-                       </widget>
-                      </item>
-                     </layout>
+                       </item>
+                      </layout>
+                     </widget>
                     </widget>
                    </item>
                   </layout>
                  </widget>
                 </item>
                </layout>
-              </item>
-              <item>
-               <spacer name="verticalSpacer">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QGroupBox" name="groupBox_2">
+            <property name="geometry">
+             <rect>
+              <x>20</x>
+              <y>660</y>
+              <width>801</width>
+              <height>331</height>
+             </rect>
+            </property>
+            <property name="title">
+             <string>Data Fitting</string>
+            </property>
+            <widget class="QComboBox" name="comboBox">
+             <property name="geometry">
+              <rect>
+               <x>190</x>
+               <y>50</y>
+               <width>101</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <item>
+              <property name="text">
+               <string>T1</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Rabi</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Ramsey</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Hahn Echo</string>
+              </property>
+             </item>
+            </widget>
+            <widget class="QLabel" name="label_40">
+             <property name="geometry">
+              <rect>
+               <x>30</x>
+               <y>40</y>
+               <width>131</width>
+               <height>41</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>Fitting Method:</string>
+             </property>
+            </widget>
+            <widget class="QPushButton" name="rabi_start_btn_2">
+             <property name="geometry">
+              <rect>
+               <x>310</x>
+               <y>50</y>
+               <width>93</width>
+               <height>27</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+	font: 10pt &quot;Yu Gothic UI&quot;;	
+
+}</string>
+             </property>
+             <property name="text">
+              <string>Fit</string>
+             </property>
+             <property name="icon">
+              <iconset resource="resources.qrc">
+               <normaloff>:/my_icons/images/icons/enable.svg</normaloff>:/my_icons/images/icons/enable.svg</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>20</width>
+               <height>25</height>
+              </size>
+             </property>
+            </widget>
+            <widget class="QGroupBox" name="groupBox_12">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>90</y>
+               <width>801</width>
+               <height>231</height>
+              </rect>
+             </property>
+             <property name="title">
+              <string>Fit Result</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_10">
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QScrollArea" name="pulse_streamer_scroll_2">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
                 </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>40</height>
-                 </size>
+                <property name="widgetResizable">
+                 <bool>true</bool>
                 </property>
-               </spacer>
+                <widget class="QWidget" name="scrollAreaWidgetContents_4">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>787</width>
+                   <height>197</height>
+                  </rect>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_11">
+                  <item>
+                   <widget class="QLabel" name="data_fit_msg">
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
               </item>
              </layout>
-            </item>
-            <item>
-             <widget class="QGroupBox" name="groupBox_9">
-              <property name="title">
-               <string>DAQ</string>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayout_9">
-               <item>
-                <widget class="QGroupBox" name="groupBox_7">
-                 <property name="title">
-                  <string>Pulse-ODMR</string>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,0,10">
+            </widget>
+           </widget>
+           <widget class="QWidget" name="layoutWidget_2">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>1741</width>
+              <height>73</height>
+             </rect>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="1,0,1">
+             <item>
+              <widget class="QGroupBox" name="groupBox_4">
+               <property name="title">
+                <string>Play</string>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_3">
+                <item row="0" column="0">
+                 <widget class="QPushButton" name="rabi_start_btn">
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
+	font: 10pt &quot;Yu Gothic UI&quot;;	
+
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Start</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="resources.qrc">
+                    <normaloff>:/my_icons/images/icons/play.svg</normaloff>:/my_icons/images/icons/play.svg</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>20</width>
+                    <height>25</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QPushButton" name="rabi_stop_btn">
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
+	font: 10pt &quot;Yu Gothic UI&quot;;	
+
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Stop</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="resources.qrc">
+                    <normaloff>:/my_icons/images/icons/stop.svg</normaloff>:/my_icons/images/icons/stop.svg</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>20</width>
+                    <height>25</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="groupBox_5">
+               <property name="title">
+                <string>Data</string>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_4">
+                <item>
+                 <widget class="QLabel" name="label_3">
+                  <property name="text">
+                   <string>Suffix:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox_2">
                   <item>
-                   <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="1,2,8,1,1,1,2">
-                    <property name="spacing">
-                     <number>5</number>
-                    </property>
-                    <item>
-                     <widget class="QLabel" name="label_3">
-                      <property name="text">
-                       <string>Position(ns)：</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QSpinBox" name="data_position_spbx">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <family>Adobe Arabic</family>
-                        <pointsize>18</pointsize>
-                       </font>
-                      </property>
-                      <property name="readOnly">
-                       <bool>true</bool>
-                      </property>
-                      <property name="buttonSymbols">
-                       <enum>QAbstractSpinBox::NoButtons</enum>
-                      </property>
-                      <property name="maximum">
-                       <number>1000000</number>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <spacer name="horizontalSpacer_4">
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>40</width>
-                        <height>20</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="save_plot_data_btn">
-                      <property name="text">
-                       <string>Save Plot Data</string>
-                      </property>
-                      <property name="icon">
-                       <iconset resource="resources.qrc">
-                        <normaloff>:/my_icons/images/icons/save.svg</normaloff>:/my_icons/images/icons/save.svg</iconset>
-                      </property>
-                      <property name="iconSize">
-                       <size>
-                        <width>20</width>
-                        <height>25</height>
-                       </size>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="save_plot_btn">
-                      <property name="text">
-                       <string>Save Plot</string>
-                      </property>
-                      <property name="icon">
-                       <iconset resource="resources.qrc">
-                        <normaloff>:/my_icons/images/icons/picture.svg</normaloff>:/my_icons/images/icons/picture.svg</iconset>
-                      </property>
-                      <property name="iconSize">
-                       <size>
-                        <width>20</width>
-                        <height>25</height>
-                       </size>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="label_5">
-                      <property name="text">
-                       <string>Repeat：</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QSpinBox" name="repeat_spbx">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <family>Adobe Arabic</family>
-                        <pointsize>18</pointsize>
-                       </font>
-                      </property>
-                      <property name="readOnly">
-                       <bool>true</bool>
-                      </property>
-                      <property name="buttonSymbols">
-                       <enum>QAbstractSpinBox::NoButtons</enum>
-                      </property>
-                      <property name="maximum">
-                       <number>1000000</number>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
+                   <property name="text">
+                    <string>T1</string>
+                   </property>
                   </item>
                   <item>
-                   <widget class="Line" name="line">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                   </widget>
+                   <property name="text">
+                    <string>Rabi</string>
+                   </property>
                   </item>
                   <item>
-                   <widget class="QFrame" name="rabi_graph_frame">
-                    <property name="styleSheet">
-                     <string notr="true">background-color: rgb(240, 240, 240);</string>
-                    </property>
-                    <property name="frameShape">
-                     <enum>QFrame::Panel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Sunken</enum>
-                    </property>
-                    <property name="lineWidth">
-                     <number>3</number>
-                    </property>
-                    <property name="midLineWidth">
-                     <number>3</number>
-                    </property>
-                   </widget>
+                   <property name="text">
+                    <string>Ramsey</string>
+                   </property>
                   </item>
-                 </layout>
-                </widget>
-               </item>
-               <item>
-                <widget class="QGroupBox" name="groupBox_11">
-                 <property name="title">
-                  <string>Data Processing Info</string>
-                 </property>
-                 <layout class="QGridLayout" name="gridLayout_7">
-                  <property name="leftMargin">
-                   <number>5</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>5</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>5</number>
-                  </property>
-                  <property name="bottomMargin">
-                   <number>5</number>
-                  </property>
-                  <item row="0" column="0">
-                   <widget class="QScrollArea" name="data_processing_scroll">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="widgetResizable">
-                     <bool>true</bool>
-                    </property>
-                    <widget class="QWidget" name="scrollAreaWidgetContents_3">
-                     <property name="geometry">
-                      <rect>
-                       <x>0</x>
-                       <y>0</y>
-                       <width>918</width>
-                       <height>85</height>
-                      </rect>
-                     </property>
-                     <layout class="QVBoxLayout" name="verticalLayout_24">
-                      <item>
-                       <widget class="QLabel" name="data_processing_msg">
-                        <property name="text">
-                         <string/>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
-                    </widget>
-                   </widget>
+                  <item>
+                   <property name="text">
+                    <string>Hahn Echo</string>
+                   </property>
                   </item>
-                 </layout>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-           </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEdit"/>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="save_plot_data_btn">
+                  <property name="text">
+                   <string>Save</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="resources.qrc">
+                    <normaloff>:/my_icons/images/icons/save.svg</normaloff>:/my_icons/images/icons/save.svg</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>20</width>
+                    <height>25</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_5">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
           </widget>
          </item>
         </layout>
